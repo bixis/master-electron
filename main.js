@@ -1,5 +1,12 @@
 // Modules
 const {app, BrowserWindow} = require('electron')
+const colors = require('colors')
+const bcrypt = require('bcrypt')
+
+console.log(colors.rainbow('Hello World')) 
+bcrypt.hash('mypass', 10, function(err,hash){ // This example is to explain different v8 compilers and rebuilds. But it appears to be globally fixed with newer versions. Must look into it.
+  console.log(hash)
+})
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -9,7 +16,7 @@ let mainWindow
 function createWindow () {
 
   mainWindow = new BrowserWindow({
-    width: 1000, height: 800,
+    width: 1600, height: 800,
     webPreferences: {
       // --- !! IMPORTANT !! ---
       // Disable 'contextIsolation' to allow 'nodeIntegration'
